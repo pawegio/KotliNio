@@ -9,6 +9,7 @@ import java.nio.channels.ServerSocketChannel
 import java.nio.channels.SocketChannel
 
 /**
+ * @author Crunchify
  * @author pawegio
  */
 @Throws(IOException::class)

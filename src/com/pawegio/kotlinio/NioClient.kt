@@ -6,6 +6,7 @@ import java.nio.ByteBuffer
 import java.nio.channels.SocketChannel
 
 /**
+ * @author Crunchify
  * @author pawegio
  */
 @Throws(IOException::class, InterruptedException::class)
