@@ -1,6 +1,7 @@
 package com.pawegio.kotlinio.example1
 
 import com.pawegio.kotlinio.log
+import com.pawegio.kotlinio.data
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.nio.ByteBuffer
@@ -43,7 +44,7 @@ fun main(args: Array<String>) {
                 val client = key.channel() as SocketChannel
                 val buffer = ByteBuffer.allocate(256)
                 client.read(buffer)
-                val result = String(buffer.array()).trim('\u0000')
+                val result = buffer.data()
                 log("Message received: $result")
 
                 if (result == "Close") {

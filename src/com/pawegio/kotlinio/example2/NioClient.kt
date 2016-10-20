@@ -1,6 +1,7 @@
 package com.pawegio.kotlinio.example2
 
 import com.pawegio.kotlinio.log
+import com.pawegio.kotlinio.toByteBuffer
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.nio.ByteBuffer
@@ -84,7 +85,7 @@ class Client(val messages: MutableList<String>) : Runnable {
 
     private fun write(key: SelectionKey, message: String) {
         val channel = key.channel() as SocketChannel
-        val buffer = ByteBuffer.wrap(message.toByteArray())
+        val buffer = message.toByteBuffer()
         channel.write(buffer)
         log("Sending: $message")
         if (messages.isEmpty()) {

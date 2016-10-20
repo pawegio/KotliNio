@@ -1,9 +1,9 @@
 package com.pawegio.kotlinio.example1
 
 import com.pawegio.kotlinio.log
+import com.pawegio.kotlinio.toByteBuffer
 import java.io.IOException
 import java.net.InetSocketAddress
-import java.nio.ByteBuffer
 import java.nio.channels.SocketChannel
 
 /**
@@ -17,12 +17,11 @@ fun main(args: Array<String>) {
 
     log("Connecting to server on port ${address.port}")
 
-    listOf("Facebook", "Twitter", "IBM", "Google", "Crunchify", "Close").forEach {
-        val message = it.toByteArray()
-        val buffer = ByteBuffer.wrap(message)
+    listOf("Facebook", "Twitter", "IBM", "Google", "Crunchify", "Close").forEach { message ->
+        val buffer = message.toByteBuffer()
         channel.write(buffer)
 
-        log("Sending: $it")
+        log("Sending: $message")
         buffer.clear()
 
         Thread.sleep(2000)
