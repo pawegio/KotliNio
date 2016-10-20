@@ -24,11 +24,11 @@ Implementation is based on [Crunchify Tutorial](http://crunchify.com/java-nio-no
 [2016-10-18T11:24:54.221Z] Waiting
 ```
 
-### Client output:
+### Clients output:
+
+*../example1/NioClient*
 
 ```
-// ../example1/NioClient
-
 [2016-10-18T11:24:44.045Z] Connecting to server on port 1111
 [2016-10-18T11:24:44.205Z] Sending: Facebook
 [2016-10-18T11:24:46.208Z] Sending: Twitter
@@ -38,9 +38,9 @@ Implementation is based on [Crunchify Tutorial](http://crunchify.com/java-nio-no
 [2016-10-18T11:24:54.220Z] Sending: Close
 ```
 
-```
-// ../example2/NioClient
+*../example2/NioClient*
 
+```
 [2016-10-20T07:41:48.745Z] Connecting to server on port 1111
 [2016-10-20T07:41:48.906Z] Connected
 [2016-10-20T07:41:50.912Z] Sending: Facebook
