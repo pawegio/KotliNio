@@ -1,5 +1,6 @@
-package com.pawegio.kotlinio
+package com.pawegio.kotlinio.example1
 
+import com.pawegio.kotlinio.log
 import java.io.IOException
 import java.net.InetSocketAddress
 import java.nio.ByteBuffer
@@ -16,12 +17,12 @@ import java.nio.channels.SocketChannel
 fun main(args: Array<String>) {
     val selector = Selector.open()
 
-    val socket = ServerSocketChannel.open()
+    val channel = ServerSocketChannel.open()
     val address = InetSocketAddress("localhost", 1111)
-    socket.apply {
+    channel.apply {
         bind(address)
         configureBlocking(false)
-        register(selector, socket.validOps(), null)
+        register(selector, channel.validOps())
     }
 
     while (true) {
@@ -33,7 +34,7 @@ fun main(args: Array<String>) {
         while (iterator.hasNext()) {
             val key = iterator.next()
             if (key.isAcceptable) {
-                socket.accept().apply {
+                channel.accept().apply {
                     configureBlocking(false)
                     register(selector, SelectionKey.OP_READ)
                     log("Connection accepted: $localAddress")
